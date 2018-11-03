@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import fire from './config/Fire';
+import './App.css';
 
 class Login extends Component {
   constructor(props) {
@@ -37,7 +38,7 @@ class Login extends Component {
       })
   }
 
-  
+
   render() {
     return (
        <div className="col-md-6">
