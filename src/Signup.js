@@ -4,24 +4,38 @@ import fire from './config/Fire';
 import './App.css';
 import Login from "./Login.js"
 import Home from './Home.js'
+import App from './App';
 
 class Signup extends Component {
     constructor(props) {
         super(props);
         this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
         this.signup = this.signup.bind(this);
         this.state = {
             email: '',
             password: '',
-            social: '',
-            humor: '',
-            active: '',
+            address: '',
+            buildingFloor:'',
+            outdoors: '',
+            cooking: '',
+            artsCraft: '',
+            movies: '',
+            gym: '',
+            games: '',
             profileComplete: ''
         };
     }
 
-    handleChange(e) {
-        this.setState({ [e.target.name]: e.target.value });
+    // Handles changes in any of the target ids
+    handleChange = (e) => {
+        this.setState({ [e.target.name]: e.target.name });
+    }
+
+    // Handles submission changes that are different from the default log in page
+    handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(this.state);
     }
 
     // Saves user info
@@ -34,19 +48,22 @@ class Signup extends Component {
             console.log(error);
         });
 
-        return (Home);
+        return <Home> Home.state.user= </Home>;
     }
 
     render() {
     return (
         <div id="parent">
             <div id="child" className="container col-md-6">
-                <form>
+                <form onSubmit={this.handleSubmit}>
+                    <h1> Let's get to know you!</h1>
+
                     <div class="form-group">
                         <label for="exampleInputEmail1">Email address</label>
                         <input  value={this.state.email}
                                 onChange={this.handleChange}
-                                type="email" name="email"
+                                type="email" 
+                                name="email"
                                 class="form-control"
                                 id="exampleInputEmail1"
                                 aria-describedby="emailHelp"
@@ -66,36 +83,97 @@ class Signup extends Component {
                     </div>
 
                     <div class="form-group">
-                        <label for="social">Social</label>
+                        <label for="address">Address</label>
                         <input  value={this.state.social}
                                 onChange={this.handleChange}
-                                type="social"
-                                name="social"
+                                type="address"
+                                name="address"
                                 class="form-control"
-                                id="humorscore1"
-                                placeholder="Rate yoself" />
+                                id="address"
+                                placeholder="Address" />
                     </div>
 
 
                     <div class="form-group">
-                        <label for="humor">Humor</label>
+                        <label for="buildingFloor">Building Floor Number</label>
+                        <input  value={this.state.social}
+                                onChange={this.handleChange}
+                                type="buildingFloor"
+                                name="buildingFloor"
+                                class="form-control"
+                                id="buildingFloor"
+                                placeholder="Floor Number" />
+                    </div>
+                    
+
+                    <div class="form-group">
+                        <label for="outdoors">Outdoors</label>
                         <input  value={this.state.humor}
                                 onChange={this.handleChange}
-                                type="humor"
-                                name="humor"
+                                type="outdoors"
+                                name="outdoors"
                                 class="form-control"
-                                id="humorscore1"
+                                id="outdoors"
                                 placeholder="Rate yoself" />
                     </div>
 
+
                     <div class="form-group">
-                        <label for="humor">Active</label>
+                        <label for="movies">Movies</label>
+                        <input  value={this.state.humor}
+                                onChange={this.handleChange}
+                                type="movies"
+                                name="movies"
+                                class="form-control"
+                                id="movies"
+                                placeholder="Rate yoself" />
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="cooking">Cooking</label>
                         <input  value={this.state.active}
                                 onChange={this.handleChange}
-                                type="active"
-                                name="active"
+                                type="cooking"
+                                name="cooking"
                                 class="form-control"
-                                id="humorscore1"
+                                id="cooking"
+                                placeholder="Rate yoself" />
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="gym">Going to the Gym</label>
+                        <input  value={this.state.active}
+                                onChange={this.handleChange}
+                                type="gym"
+                                name="gym"
+                                class="form-control"
+                                id="gym"
+                                placeholder="Rate yoself" />
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="artsCraft">Arts and Craft</label>
+                        <input  value={this.state.social}
+                                onChange={this.handleChange}
+                                type="buildingFloor"
+                                name="buildingFloor"
+                                class="form-control"
+                                id="buildingFloor"
+                                placeholder="Rate yoself" />
+                    </div>
+
+                    
+                    <div class="form-group">
+                        <label for="games">Video Games</label>
+                        <input  value={this.state.active}
+                                onChange={this.handleChange}
+                                type="games"
+                                name="games"
+                                class="form-control"
+                                id="games"
                                 placeholder="Rate yoself" />
                     </div>
 
