@@ -10,6 +10,7 @@ class App extends Component {
         super();
         this.state = ({
             user: null,
+            onboardingDone: null;
         });
         this.authListener = this.authListener.bind(this);
     }
@@ -32,7 +33,7 @@ class App extends Component {
     }
     render() {
         return (
-            <div>{ (this.state.user) ? ( <Home user={this.state.user} /> ) : (<Login />) };</div>
+            <div>{ (this.state.user) ? ( <Home /> ) : (<Login />) };</div>
         )}
     }
 

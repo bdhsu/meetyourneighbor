@@ -36,6 +36,7 @@ class Signup extends Component {
         <div id="parent">
             <div id="child" className="container col-md-6">
                 <form>
+                    <h1>Before we begin...</h1>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Email address</label>
                         <input  value={this.state.email}

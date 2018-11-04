@@ -7,7 +7,7 @@ class Home extends Component {
         super(props);
         this.handleChange = this.handleChange.bind(this);
         this.state = {
-            email: this.props.user.email,
+            email: '',
             password: '',
             social: '',
             humor: '',
@@ -23,6 +23,10 @@ class Home extends Component {
 
     logout() {
         fire.auth().signOut();
+    }
+
+    signup(e){
+        this.setState({ onboardingDone: true });
     }
 
     render() {
@@ -58,68 +62,69 @@ class Home extends Component {
             render() {
                 return (
                     <div id="parent">
-                    <div id="child" className="container col-md-6">
-                    <form>
-                    <div class="form-group">
-                    <label for="exampleInputEmail1">Email address</label>
-                    <input  value={this.state.email}
-                    onChange={this.handleChange}
-                    type="email" name="email"
-                    class="form-control"
-                    id="exampleInputEmail1"
-                    aria-describedby="emailHelp"
-                    placeholder={this.state.email}  />
-                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                    </div>
+                        <div id="child" className="container col-md-6">
+                            <form>
+                                <h1>Before we begin...</h1>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Email address</label>
+                                    <input  value={this.state.email}
+                                    onChange={this.handleChange}
+                                    type="email" name="email"
+                                    class="form-control"
+                                    id="exampleInputEmail1"
+                                    aria-describedby="emailHelp"
+                                    placeholder={this.state.email}  />
+                                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                                </div>
 
-                    <div class="form-group">
-                    <label for="exampleInputPassword1">Password</label>
-                    <input  value={this.state.password}
-                    onChange={this.handleChange}
-                    type="password"
-                    name="password"
-                    class="form-control"
-                    id="exampleInputPassword1"
-                    placeholder="Password" />
-                    </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Password</label>
+                                    <input  value={this.state.password}
+                                    onChange={this.handleChange}
+                                    type="password"
+                                    name="password"
+                                    class="form-control"
+                                    id="exampleInputPassword1"
+                                    placeholder="Password" />
+                                </div>
 
-                    <div class="form-group">
-                    <label for="social">Social</label>
-                    <input  value={this.state.social}
-                    onChange={this.handleChange}
-                    type="social"
-                    name="social"
-                    class="form-control"
-                    id="humorscore1"
-                    placeholder="Rate yoself" />
-                    </div>
+                                <div class="form-group">
+                                    <label for="social">Social</label>
+                                    <input  value={this.state.social}
+                                    onChange={this.handleChange}
+                                    type="social"
+                                    name="social"
+                                    class="form-control"
+                                    id="humorscore1"
+                                    placeholder="Rate yoself" />
+                                </div>
 
 
-                    <div class="form-group">
-                    <label for="humor">Humor</label>
-                    <input  value={this.state.humor}
-                    onChange={this.handleChange}
-                    type="humor"
-                    name="humor"
-                    class="form-control"
-                    id="humorscore1"
-                    placeholder="Rate yoself" />
-                    </div>
+                                <div class="form-group">
+                                    <label for="humor">Humor</label>
+                                    <input  value={this.state.humor}
+                                    onChange={this.handleChange}
+                                    type="humor"
+                                    name="humor"
+                                    class="form-control"
+                                    id="humorscore1"
+                                    placeholder="Rate yoself" />
+                                </div>
 
-                    <div class="form-group">
-                    <label for="humor">Active</label>
-                    <input  value={this.state.active}
-                    onChange={this.handleChange}
-                    type="active"
-                    name="active"
-                    class="form-control"
-                    id="humorscore1"
-                    placeholder="Rate yoself" />
-                    </div>
+                                <div class="form-group">
+                                    <label for="humor">Active</label>
+                                    <input  value={this.state.active}
+                                    onChange={this.handleChange}
+                                    type="active"
+                                    name="active"
+                                    class="form-control"
+                                    id="humorscore1"
+                                    placeholder="Rate yoself" />
+                                </div>
 
-                    <button onClick={this.signup} className="btn btn-success">Signup</button>
-                    </form>
-                    </div>
+                                <button onClick={this.signup} className="btn btn-success">Signup</button>
+                            </form>
+                        </div>
                     </div>
                 );
             }
