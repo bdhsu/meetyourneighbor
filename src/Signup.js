@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import fire from './config/Fire';
 import './App.css';
-import Signup from './Signup.js'
+import Login from "./Login.js"
 
-class Login extends Component {
+class Signup extends Component {
   constructor(props) {
     super(props);
     this.login = this.login.bind(this);
@@ -48,11 +48,17 @@ class Login extends Component {
 
   render() {
     return (
-       <div className="col-md-6">
-       <form>
-      <div class="form-group">
-       <label for="exampleInputEmail1">Email address</label>
-       <input value={this.state.email} onChange={this.handleChange} type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your Email" />
+        <div className="col-md-6">
+            <form>
+                <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input  value={this.state.email} 
+                        onChange={this.handleChange} 
+                        type="email" name="email" 
+                        class="form-control" 
+                        id="exampleInputEmail1" 
+                        aria-describedby="emailHelp" 
+                        placeholder={this.state.email}  />
        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
       </div>
     
