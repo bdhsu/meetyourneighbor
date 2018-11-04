@@ -4,6 +4,7 @@ import fire from './config/Fire';
 import './App.css';
 import Signup from './Signup.js'
 
+// This is the front Log In page. It should only include Email, Password, and Login and Signup Buttons.
 class Login extends Component {
 
   constructor(props) {
