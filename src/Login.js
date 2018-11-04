@@ -22,6 +22,10 @@ class Login extends Component {
   // Call Firebases' signinWithEmailAndPassword function and pass in email and password
   login(e) {
     e.preventDefault();
+    fire.auth().updateUser({
+        displayName: this.state.displayName})
+        .then(function() { var displayName = this.state.displayName;})
+        .then(function(e) {});
     fire.auth().signInWithEmailAndPassword(this.state.email, this.state.password).then((u)=>{
     }).catch((error) => {
         console.log(error);
@@ -31,6 +35,10 @@ class Login extends Component {
   // Creates user with specificed email and password
   signup(e){
     e.preventDefault();
+    fire.auth().updateUser({
+        displayName: this.state.displayName})
+        .then(function() { var displayName = this.state.displayName;})
+        .then(function(e) {});
     fire.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).then((u)=>{
     }).then((u)=>{console.log(u)})
     .catch((error) => {
@@ -45,9 +53,15 @@ class Login extends Component {
        <form>
       <div class="form-group">
        <label for="exampleInputEmail1">Email address</label>
-       <input value={this.state.email} onChange={this.handleChange} type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
+       <input value={this.state.email} onChange={this.handleChange} type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your Email" />
        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
       </div>
+        <div class="form-group">
+       <label for="exampleInputUsername">Username</label>
+       <input value={this.state.displayName} onChange={this.handleChange} type="username" name="username" class="form-control" id="exampleUsername" aria-describedby="emailHelp" placeholder="Enter Username" />
+       <small id="emailHelp" class="form-text text-muted">Everyone will see this name.</small>
+      </div>
+    
        <div class="form-group">
       <label for="exampleInputPassword1">Password</label>
       <input value={this.state.password} onChange={this.handleChange} type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password" />

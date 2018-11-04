@@ -6,6 +6,7 @@ class Home extends Component {
     constructor(props) {
         super(props);
         this.logout = this.logout.bind(this);
+        //this.personal = this.personal.bind(this);
     }
 
 
@@ -16,7 +17,12 @@ class Home extends Component {
     render() {
         return (
             <div>
-                <h1>Welcome to Home</h1>
+                <script>
+                    var user;
+                    user= fire.auth().UserInfo#displayName;
+                </script>
+                <h1>Welcome to Home <script>user</script> Hi</h1>
+                
                 <button onClick={this.logout}> Logout</button>
             </div>
         )
