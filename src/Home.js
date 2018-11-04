@@ -21,7 +21,7 @@ class Home extends Component {
                     var user;
                     user= fire.auth().UserInfo#displayName;
                 </script>
-                <h1>Neighborhood <script>user</script> Hi</h1>
+                <h1>Neighborhooasdfasdfsd <script>user</script> Hi</h1>
 
                 <button onClick={this.logout}> Logout</button>
             </div>
