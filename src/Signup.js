@@ -10,6 +10,7 @@ class Signup extends Component {
         super(props);
         this.handleChange = this.handleChange.bind(this);
         this.signup = this.signup.bind(this);
+        this.logout = this.logout.bind(this);
         this.state = {
             email: '',
             password: '',
@@ -22,6 +23,10 @@ class Signup extends Component {
 
     handleChange(e) {
         this.setState({ [e.target.name]: e.target.value });
+    }
+
+    logout() {
+        fire.auth().signOut();
     }
 
     // Saves user info
@@ -100,6 +105,7 @@ class Signup extends Component {
                     </div>
 
                     <button onClick={"this.signup(); Home;"} className="btn btn-success">Signup</button>
+                    <button onClick={this.logout} className="btn btn-danger"> Logout</button>
                 </form>
             </div>
         </div>
