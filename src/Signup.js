@@ -26,15 +26,9 @@ class Signup extends Component {
 
     // Saves user info
     signup(e){
+        this.setState({ profileComplete: 'true' });
         e.preventDefault();
-        this.setState({ [this.state.profileComplete]: 'true' });
-        fire.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).then((u)=>{
-        }).then((u)=>{console.log(u)})
-        .catch((error) => {
-            console.log(error);
-        });
-
-        return (Home);
+        fire.auth().updateCurrentUser(this.state);
     }
 
     render() {
@@ -99,7 +93,7 @@ class Signup extends Component {
                                 placeholder="Rate yoself" />
                     </div>
 
-                    <button onClick={"this.signup(); Home;"} className="btn btn-success">Signup</button>
+                    <button onClick={this.signup} className="btn btn-success">Signup</button>
                 </form>
             </div>
         </div>

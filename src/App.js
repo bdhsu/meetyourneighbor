@@ -32,13 +32,7 @@ class App extends Component {
     }
     render() {
         return (
-            <div>
-            { (this.state.user) ?
-                ( (this.state.user.profileComplete) ?
-                    ( <Home user={this.state.user} /> )
-                  : ( <Signup /> ) )
-              : (<Login />) };
-            </div>
+            <div>{ (this.state.user) ? ( <Home user={this.state.user} /> ) : (<Login />) };</div>
         )}
     }
 
