@@ -3,6 +3,7 @@ import './App.css';
 import fire from './config/Fire';
 import Home from './Home';
 import Login from './Login';
+import Signup from './Signup';
 
 class App extends Component {
     constructor() {
@@ -16,7 +17,7 @@ class App extends Component {
     componentDidMount() {
         this.authListener();
     }
-    
+
     authListener() {
         fire.auth().onAuthStateChanged((user) => {
             console.log(user);
@@ -32,7 +33,11 @@ class App extends Component {
     render() {
         return (
             <div>
-            { (this.state.user) ? ( <Home/>) : (<Login />)};
+            { (this.state.user) ?
+                ( (this.state.user.profileComplete) ?
+                    ( <Home user={this.state.user} /> )
+                  : ( <Signup /> ) )
+              : (<Login />) };
             </div>
         )}
     }
